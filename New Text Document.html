@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>机型对比</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>选择旧机型</h1>
+    <select id="old-model" onchange="showNewModels()">
+        <option value="">请选择旧机型</option>
+        <option value="model1">旧机型 1</option>
+        <option value="model2">旧机型 2</option>
+        <option value="model3">旧机型 3</option>
+    </select>
+
+    <div id="new-models" style="display: none;">
+        <h2>推荐的新机型:</h2>
+        <ul id="model-list"></ul>
+        <table id="model-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Pic</th>
+                    <th>机型</th>
+                </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+        </table>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

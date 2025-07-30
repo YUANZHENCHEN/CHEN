@@ -22,7 +22,7 @@ function showNewModels() {
                     image: 'https://i.ibb.co/67Db5pk2/1751592073313.png', // 替换为实际图片链接
                     params: {
                         'Dsskey': '21',
-                        'SIP accounts': '12111111',
+                        'SIP accounts': '12111222111',
                         'Ethernet': '2*GigE',
                         'POE': '√',
                         'Display': '3.7" 360x160 graphical LCD',

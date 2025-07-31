@@ -70,7 +70,7 @@ function showNewModels() {
                     image: 'https://via.placeholder.com/100',
                     params: {
                         'Dsskey': '15',
-                        'SIP accounts': '8',
+                        'SIP accounts': '81',
                         'Ethernet': '1*GigE',
                         'POE': '√',
                         'Display': '2.8" 240x320 graphical LCD',

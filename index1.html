@@ -3,32 +3,273 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>机型对比</title>
-    <link rel="stylesheet" href="styles.css?v=1.3">
+    <title>T7/T8设备信息套包</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+			 background-image: url(https://i-blog.csdnimg.cn/blog_migrate/1db0643ebaee70d86bbdbc5c0704c069.png);
+             background-repeat: no-repeat; /* 防止图片重复 */
+             background-size: cover; /* 填充整个页面 */
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+			background-color: #2f4f4f;
+		   color: white;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .highlight {
+            background-color: #f2f2f2;
+        }
+        .pic {
+            width: 100px;
+        }
+        #new-models {
+            display: none;
+        }
+        .category {
+            background-color: #2f4f4f;
+            color: white;
+            font-weight: bold;
+        }
+        .improved {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .worse {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+		h2 {
+color: white;
+        }
+		h3 {
+color: white;
+        }
+	   h1 {
+color: white;
+        }
+    </style>
 </head>
 <body>
-    <h1>选择旧机型</h1>
-    <select id="old-model" onchange="showNewModels()">
-        <option value="">请选择旧机型</option>
-        <option value="model1">旧机型 1</option>
-        <option value="model2">旧机型 2</option>
-        <option value="model3">旧机型 3</option>
-    </select>
 
-    <div id="new-models" style="display: none;">
-        <h2>推荐的新机型:</h2>
-        <ul id="model-list"></ul>
-        <table id="model-table" style="display: none;">
-            <thead>
-                <tr>
-                    <th>Pic</th>
-                    <th>机型</th>
-                </tr>
-            </thead>
-            <tbody id="table-body"></tbody>
-        </table>
+<h1>T7/T8设备套包</h1>
+<h2>测试文档:</h2>
+<a  href="https://yealink.mike-x.com/W97I9" target="_blank" style="color: white;font-weight: bold;">填写T7使用问卷</a>
+<br></br>
+ <a  href="https://yealink.mike-x.com/W97I9" target="_blank" style="color: white;font-weight: bold;">填写T8使用问卷</a>
+ <br></br>
+<label style="color: white;font-weight: bold;" for="old-model">选择旧机型:</label>
+<select id="old-model" onchange="showNewModels()">
+    <option value="">请选择</option>
+    <option value="model1">T54W</option>
+    <option value="model2">T44W</option>
+    <option value="model3">旧机型 3</option>
+</select>
+
+<div id="new-models">
+    <table id="model-table">
+        <thead>
+            <tr>
+                <th>Model</th>
+                <th>旧机型</th>
+                <th>新机型</th>
+            </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+    </table>
+    <div>
+        <a id="datasheet-link" href="#" target="_blank" style="color: white;font-weight: bold;">Datasheet</a> 
+		<br></br>
+        <a id="userguide-link" href="#" target="_blank" style="color: white;font-weight: bold;">使用手册</a>
     </div>
+</div>
 
-    <script src="script.js?v=1.3"></script>
+<script>
+function showNewModels() {
+    const oldModelSelect = document.getElementById('old-model');
+    const tableBody = document.getElementById('table-body');
+    const newModelsDiv = document.getElementById('new-models');
+    const datasheetLink = document.getElementById('datasheet-link');
+    const userguideLink = document.getElementById('userguide-link');
+
+    // 清空表格内容
+    tableBody.innerHTML = '';
+
+    const oldModelValue = oldModelSelect.value;
+    let oldModel = {};
+    let newModels = [];
+
+    // 根据选择的旧机型推荐新机型及其参数
+    switch (oldModelValue) {
+        case 'model1':
+            oldModel = {
+                name: 'T54W',
+                image: 'https://i.ibb.co/GvHYx2hb/20250801165830.png',
+                params: {
+                    'External AC Adapter': 'AC 100~240V input and DC 5V/600mA output',
+                    'PoE': '(IEEE 802.3af), class 2',
+                    'Ethernet Port': 'Dual-port Gigabit Ethernet',
+                    'EHS': '√',
+                    'USB': '×',
+                    'Bluetooth': '×',
+                    'Wi-Fi': '×',
+                    'Expansion Module': '×',
+                    'Foot Stand': '2 adjustable angles',
+                    'Wall Mountable': '√'
+                }
+            };
+            newModels = [
+                {
+                    name: 'T85W',
+                    image: 'https://i.ibb.co/4ZW30vrn/20250801170240.png',
+                    params: {
+                        'External AC Adapter': 'AC 100~240V input and DC 5V/600mA output',
+                        'PoE': '(IEEE 802.3af), class 2',
+                        'Ethernet Port': 'Two-port 10/100M Ethernet Switch',
+                        'EHS': '√',
+                        'USB': '×',
+                        'Bluetooth': '×',
+                        'Wi-Fi': '×',
+                        'Expansion Module': '×',
+                        'Foot Stand': '2 adjustable angles',
+                        'Wall Mountable': '√'
+                    },
+                    datasheet: 'https://limewire.com/d/tBciF#Tb26xU6IzQ',
+                    userguide: 'https://example.com/userguide-a'
+					
+                }
+            ];
+            break;
+        case 'model2':
+            oldModel = {
+                name: 'T44W',
+                image: 'https://via.placeholder.com/100',
+                params: {
+                    'External AC Adapter': 'AC 100~240V input and DC 5V/600mA output',
+                    'PoE': '(IEEE 802.3af), class 2',
+                    'Ethernet Port': 'Two-port 10/100M Ethernet Switch',
+                    'EHS': '√',
+                    'USB': '×',
+                    'Bluetooth': '×',
+                    'Wi-Fi': '×',
+                    'Expansion Module': '×',
+                    'Foot Stand': '2 adjustable angles',
+                    'Wall Mountable': '√'
+                }
+            };
+            newModels = [
+                {
+                    name: 'T74W',
+                    image: 'https://via.placeholder.com/100',
+                    params: {
+                        'External AC Adapter': 'AC 100~240V input and DC 5V/600mA output',
+                        'PoE': '(IEEE 802.3af), class 2',
+                        'Ethernet Port': 'Dual-port Gigabit Ethernet',
+                        'EHS': '√',
+                        'USB': '×',
+                        'Bluetooth': '×',
+                        'Wi-Fi': '×',
+                        'Expansion Module': '×',
+                        'Foot Stand': '2 adjustable angles',
+                        'Wall Mountable': '√'
+                    },
+                    datasheet: 'https://example.com/datasheet-b',
+                    userguide: 'https://example.com/userguide-b'
+                }
+				
+            ];
+            break;
+        case 'model3':
+            oldModel = {
+                name: '旧机型 3',
+                image: 'https://via.placeholder.com/100',
+                params: {
+                    'External AC Adapter': 'AC 100~240V input and DC 5V/600mA output',
+                    'PoE': '(IEEE 802.3af), class 2',
+                    'Ethernet Port': 'Two-port 10/100M Ethernet Switch',
+                    'EHS': '√',
+                    'USB': '×',
+                    'Bluetooth': '×',
+                    'Wi-Fi': '×',
+                    'Expansion Module': '×',
+                    'Foot Stand': '2 adjustable angles',
+                    'Wall Mountable': '√'
+                }
+            };
+            newModels = [
+                {
+                    name: '新机型 C',
+                    image: 'https://via.placeholder.com/100',
+                    params: {
+                        'External AC Adapter': 'AC 100~240V input and DC 5V/600mA output',
+                        'PoE': '(IEEE 802.3af), class 2',
+                        'Ethernet Port': 'Dual-port Gigabit Ethernet',
+                        'EHS': '√',
+                        'USB': '×',
+                        'Bluetooth': '×',
+                        'Wi-Fi': '×',
+                        'Expansion Module': '×',
+                        'Foot Stand': '2 adjustable angles',
+                        'Wall Mountable': '√'
+                    },
+                    datasheet: 'https://example.com/datasheet-c',
+                    userguide: 'https://example.com/userguide-c'
+                }
+            ];
+            break;
+        default:
+            newModels = [];
+    }
+
+    // 如果有新机型，显示它们
+    if (newModels.length > 0) {
+        const modelRow = document.createElement('tr');
+        modelRow.innerHTML = `
+            <td class="category">Model</td>
+            <td>${oldModel.name}<br><img class="pic" src="${oldModel.image}" alt="${oldModel.name}"></td>
+            <td>${newModels[0].name}<br><img class="pic" src="${newModels[0].image}" alt="${newModels[0].name}"></td>
+        `;
+        tableBody.appendChild(modelRow);
+
+        // 添加参数到表格
+        for (const param in oldModel.params) {
+            const oldValue = oldModel.params[param];
+            const newValue = newModels[0].params[param];
+            const paramRow = document.createElement('tr');
+            let valueClass = '';
+            if (oldValue !== newValue) {
+                valueClass = oldValue < newValue ? 'improved' : 'worse';
+            }
+            paramRow.innerHTML = `
+                <td class="category">${param}</td>
+                <td>${oldValue}</td>
+                <td class="${valueClass}">${newValue}</td>
+            `;
+            tableBody.appendChild(paramRow);
+        }
+
+        // 更新链接
+        datasheetLink.href = newModels[0].datasheet; // 使用第一个新机型的链接
+        userguideLink.href = newModels[0].userguide; // 使用第一个新机型的链接
+
+        newModelsDiv.style.display = 'block';
+    } else {
+        newModelsDiv.style.display = 'none';
+    }
+}
+</script>
+
 </body>
 </html>
+
